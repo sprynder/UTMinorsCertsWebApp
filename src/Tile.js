@@ -12,7 +12,7 @@ function Tile(props) {
           props.classes.map((classes)=>{
             if(props.data[title].includes(classes))
             {
-              return (<div className = "font-mono pl-1">{classes}</div>)
+              return (<div className = "font-mono pl-1" key = {classes+title}>{classes}</div>)
             }
         })
         }

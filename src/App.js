@@ -24,6 +24,15 @@ const schools = [
 function App() {
   const [cards, setCards] = useState([]);
   const [schoolIndex, setSchoolIndex] = useState(0);
+
+  function remove(value) { 
+    let tempArr =[...cards]
+    let temp= tempArr.filter(function(ele){ 
+        return ele != value; 
+    });
+    setCards(temp);
+}
+
   return (
     <div>
     <div className = "h-[5vh] flex place-items-center">
@@ -89,7 +98,7 @@ function App() {
               setCards(arr);
             }}
           />
-          <Column cardArr={cards} />
+          <Column cardArr={cards} removeCards = {remove}/>
         </div>
       </div>
     </div>
