@@ -25,12 +25,10 @@ function App() {
   const [cards, setCards] = useState([]);
   const [schoolIndex, setSchoolIndex] = useState(0);
 
-  function remove(value) { 
+  function remove(index) { 
     let tempArr =[...cards]
-    let temp= tempArr.filter(function(ele){ 
-        return ele != value; 
-    });
-    setCards(temp);
+    tempArr.splice(index,1);
+    setCards(tempArr);
 }
 
   return (
@@ -94,7 +92,8 @@ function App() {
             options={aquaticCreatures}
             onChange={(opt) => {
               let arr = [...cards];
-              arr.push(opt.value);
+              if(!arr.includes(opt.value))
+                arr.push(opt.value);
               setCards(arr);
             }}
           />
